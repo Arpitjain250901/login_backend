@@ -1,3 +1,5 @@
+
+import dotenv from 'dotenv';
 import db from "./database.js";
 import express from "express";
 import bcrypt from "bcrypt";
@@ -5,16 +7,21 @@ import cors from "cors";
 import bodyparser from "body-parser";
 import mysql from "mysql";
 
+
+
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyparser.urlencoded({extended:true}));
 
+dotenv.config();
+
 db.getConnection(async (err, connection) => {
     if (err) throw (err)
     console.log("DB connected successful: " + connection.threadId)
 })
+//console.log(process.env.DB_HOST);
 
 app.post("/createUser", async (req, res) => {
     console.log("i am in");
