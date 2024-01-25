@@ -1,6 +1,6 @@
 import db from "./database.js";
 import express from "express";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import cors from "cors";
 import bodyparser from "body-parser";
 import mysql from "mysql";
